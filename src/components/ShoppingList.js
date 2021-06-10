@@ -1,11 +1,16 @@
 import React from "react";
 import Item from "./Item";
 
-function ShoppingList({ items }) {
+function ShoppingList({ items, selectedCategory, setCategory }) {
+  const filterList=(event)=> {
+    setCategory(event.target.value)
+  }
+
+
   return (
     <div className="ShoppingList">
       <div className="Filter">
-        <select name="filter">
+        <select name="filter" onChange={filterList}>
           <option value="All">Filter by category</option>
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>
